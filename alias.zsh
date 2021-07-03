@@ -1,5 +1,6 @@
 #git
-alias config="/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME"
+alias dtsmain="/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME"
+alias dtscli="/usr/bin/git --git-dir=$HOME/.config/cli_dotfiles/ --work-tree=$HOME"
 alias unv="/usr/bin/git --git-dir=$HOME/Documents/university/.unv/ \
     --work-tree=$HOME/Documents/university"
     # alias fm_ignore"git config core.filemode false"
