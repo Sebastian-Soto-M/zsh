@@ -90,6 +90,7 @@ alias mvndb="mvnt -Dmaven.surefire.debug"
 alias mvnweb="mvn -P-webpack"
 alias fd="fdfind"
 #program alias
+alias cat="bat"
 alias top=bpytop
 alias vim=$EDITOR
 alias feh="feh -ZF"

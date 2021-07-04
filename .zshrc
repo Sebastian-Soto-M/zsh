@@ -67,7 +67,7 @@ source $ZDOTDIR/alias.zsh
 # TERMINAL TOOLS  CONFIGS #
 ###########################
 # bat
-export BAT_THEME="Dracula"
+export BAT_THEME="gruvbox-dark"
 export  BAT_STYLE="numbers,grid"
 # asdf
 #. $ASDF_DATA_DIR/asdf.sh
