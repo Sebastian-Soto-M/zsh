@@ -97,7 +97,7 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 ######################
 export GIT_PAGER="bat"
 export EDITOR="nvim"
-export TERM="st-256color"
+export TERM="screen-256color"
 export SUDO_ASKPASS="$SCRIPTS/tools/ask_pass"
 
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
