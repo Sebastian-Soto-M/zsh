@@ -19,30 +19,24 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export SDKMAN_DIR="$XDG_DATA_HOME"/sdkman
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export FLUTTER_DIR="$XDG_CONFIG_HOME"/cli_tools/flutter
+
+export PYENV_ROOT=$XDG_DATA_HOME/pyenv
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 # run this command: echo hsts-file \= "$XDG_CACHE_HOME"/wget-hsts >> "$WGETRC"
 
-export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
-
-
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
-
-export TASKRC="$XDG_CONFIG_HOME"/task/taskrc
-export TASKDATA="$XDG_DATA_HOME"/task
-export TIMEWARRIORDB="$TASKDATA"/timewarrior
 
 export SCRIPTS="$XDG_CONFIG_HOME/scripts"
 
-export PATH="$XDG_DATA_HOME/go/bin:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/npm/bin:$PATH"
-export PATH="$HOME/.local/bin:$XDG_CONFIG_HOME/dwm-status:$PATH"
-export PATH=$PATH"$(find $SCRIPTS -type d -printf ':%p')"
+export PATH="$PYENV_ROOT/bin:$FLUTTER_DIR/bin:$XDG_DATA_HOME/go/bin:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:"$HOME/.pub-cache/bin":$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:$PATH"
 
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
 fi
+

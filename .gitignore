@@ -1,3 +1,7 @@
 .zcomp*
 *.zwc
 oh-my-zsh/
+.DS_Store
+.zsh_sessions/
+.iterm2*
+.zsh_history

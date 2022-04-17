@@ -1,13 +1,14 @@
 #git
 alias dtsmain="/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME"
 alias dtscli="/usr/bin/git --git-dir=$XDG_CONFIG_HOME/cli_dotfiles/ --work-tree=$XDG_CONFIG_HOME"
-alias unv="/usr/bin/git --git-dir=$HOME/Documents/university/.unv/ \
-    --work-tree=$HOME/Documents/university"
+# alias unv="/usr/bin/git --git-dir=$HOME/Documents/university/.unv/ \
+#     --work-tree=$HOME/Documents/university"
     # alias fm_ignore"git config core.filemode false"
     # config config --local status.showUntrackedFiles no
 
 #file edits
-EDITOR=nvim
+EDITOR=lvim
+TMUX_CONF=$XDG_CONFIG_HOME/tmux/tmux.conf
 
 alias e10="$EDITOR $ZDOTDIR/.p10k.zsh"
 alias ealias="$EDITOR $ZDOTDIR/alias.zsh"
@@ -16,7 +17,8 @@ alias eks="$EDITOR $XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 alias envrc="pushd ~/.config/nvim/"
 alias ep="$EDITOR ~/.config/picom/picom.conf"
 alias epl="$EDITOR $XDG_CONFIG_HOME/polybar/config"
-alias etmx="$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias etmx="$EDITOR $TMUX_CONF"
+alias tmux="tmux -f $TMUX_CONF"
 alias emypy="$EDITOR $XDG_CONFIG_HOME/mypy/config"
 alias etrc="$EDITOR $TASKRC"
 alias eze="$EDITOR $HOME/.zshenv"
@@ -27,22 +29,22 @@ alias eau="$EDITOR $XDG_DATA_HOME/dwm/autostart.sh"
 #folders
 jva=~/code/java
 ptn=~/code/python
-unv=~/universidad
+code=~/Documents/code
+go=$code/go
+ka=~/Documents/Obsidian/KnowledgeArk
 
 #shortcuts
 alias de="deactivate"
 alias pf="pip freeze"
 alias pfr="pip freeze > requirements.txt"
-alias te="task $1 edit"
-alias xclip="xclip -selection clipboard"
-alias clpk="colorpicker --short --preview --one-shot"
-alias o="xdg-open $1 & disown"
-alias m="ncspot"
+alias nenv="python -m venv .env"
 alias a="alias | fzf"
-alias xev="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", \$5, \$8 }'"
 alias lstdeps="expac -S '%r/%n: %D'"
 alias pc="(rm *.orig ; rm *.rej; rm config.h) && sudo make clean install"
 alias pm="pymake"
+
+alias flbuild="flutter pub run build_runner build"
+alias fladd="flutter pub add "
 
 # exa
 alias exa='exa --icons'
@@ -52,52 +54,19 @@ alias lt='exa -T --icons'
 alias la='exa -Dxas size'
 alias ls='exa -xas type'
 
-#Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
-#merge new settings
-alias merge="xrdb -merge ~/.Xresources"
-
-# Aliases for software managment
-# pacman or pm
-alias pacman='sudo pacman --color auto'
-alias update='sudo pacman -Syyu'
-
-# yay as aur helper - updates everything
-alias pksyua="yay -Syu --noconfirm"
-alias upall="yay -Syu --noconfirm"
-
-#taskwarrior
-trd='task dtl'
-trw='task wk'
-
-alias trd="$trd"
-alias trdapi="$trd project:shopped +api"
-alias trdapp="$trd project:shopped +app"
-alias trdf="$trd | fzf"
-
-alias trw="$trw"
-alias tv="taskwarrior-tui"
-
-#timewarrior
-alias tws='timew summary :ids'
-
 #tools
 alias raid_calc="python -i ~/universidad/sistemas_operativos1/materia/src/raid_calc.py"
 alias dgd="dragon-drag-and-drop" # "dragon-drag-and-drop"
-alias rm="rmtrash"
+alias rm="trash -v"
 alias mvndb="mvnt -Dmaven.surefire.debug"
 alias mvnweb="mvn -P-webpack"
-alias fd="fdfind"
 #program alias
 alias cat="bat"
 alias top=bpytop
-alias vim=$EDITOR
+alias vim=lvim
 alias feh="feh -ZF"
-alias xlog="nvim ~/.local/share/xorg/Xorg.0.log"
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias glass="picom --experimental-backends &"
-alias vims="$EDITOR -S vim-workspace"
 #functions
 ex () {
     if [ -f $1 ] ; then

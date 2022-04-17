@@ -28,37 +28,34 @@ bindkey -v '^?' backward-delete-char
 export ZSH="$XDG_CONFIG_HOME"/zsh/oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # TMUX configuration
-ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME"/tmux/tmux.conf
-ZSH_TMUX_AUTOCONNECT=true
-ZSH_TMUX_UNICODE=true
+# ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME"/tmux/tmux.conf
+# ZSH_TMUX_AUTOCONNECT=true
+# ZSH_TMUX_UNICODE=true
 # ZSH_TMUX_AUTOSTART=true
 # ZSH_TMUX_AUTOQUIT=true
 # ALIAS_FINDER
 ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 plugins=(
+    # tmux
     alias-finder
-    #asdf
+    brew
     colored-man-pages
     fast-syntax-highlighting
     fd
-    npm
-    node
+    flutter
     fzf
     git
     gitignore
+    golang
     jenv
     man
     mvn
     ng
+    node
+    npm
     pip
-    systemd
-    taskwarrior
-    timewarrior
-    tmux
-    virtualenvwrapper
     web-search
-    zsh_reload
 )
 source $ZSH/oh-my-zsh.sh
 source $ZDOTDIR/alias.zsh
@@ -68,7 +65,7 @@ source $ZDOTDIR/alias.zsh
 ###########################
 # bat
 export BAT_THEME="gruvbox-dark"
-export  BAT_STYLE="numbers,grid"
+export BAT_STYLE="numbers,grid"
 # asdf
 #. $ASDF_DATA_DIR/asdf.sh
 # FZF
@@ -87,19 +84,25 @@ export FZF_DEFAULT_COMMAND="fdfind -t f -t d $FD_OPTIONS"
 export FZF_CTRl_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"
 
-# virtualenvwrapper
-export WORKON_HOME=~/.config/virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source $HOME/.local/bin/virtualenvwrapper.sh
-
 ######################
 #  END-FILE CONFIGS  #
 ######################
 export GIT_PAGER="bat"
 export EDITOR="nvim"
 export TERM="screen-256color"
-export SUDO_ASKPASS="$SCRIPTS/tools/ask_pass"
 
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# NVM configuration
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# PYENV configuration
+eval "$(pyenv init --path)"
+# eval "$(pyenv virtualenv-init -)"
+
+test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
+
