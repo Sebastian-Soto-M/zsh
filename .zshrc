@@ -1,3 +1,7 @@
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -42,10 +46,10 @@ plugins=(
     brew
     colored-man-pages
     fast-syntax-highlighting
-    fd
     flutter
     fzf
     git
+    git-commit
     gitignore
     golang
     jenv
@@ -57,6 +61,7 @@ plugins=(
     pip
     web-search
 )
+# export ZSH_PYENV_QUIET=true
 source $ZSH/oh-my-zsh.sh
 source $ZDOTDIR/alias.zsh
 
@@ -64,7 +69,7 @@ source $ZDOTDIR/alias.zsh
 # TERMINAL TOOLS  CONFIGS #
 ###########################
 # bat
-export BAT_THEME="gruvbox-dark"
+export BAT_THEME="OneHalfDark"
 export BAT_STYLE="numbers,grid"
 # asdf
 #. $ASDF_DATA_DIR/asdf.sh
@@ -90,6 +95,7 @@ export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"
 export GIT_PAGER="bat"
 export EDITOR="nvim"
 export TERM="screen-256color"
+export MAKE="gmake"
 
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
@@ -100,9 +106,9 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# PYENV configuration
-eval "$(pyenv init --path)"
-# eval "$(pyenv virtualenv-init -)"
-
 test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
 
+# Created by `pipx` on 2024-07-27 06:58:48
+export PATH="$HOME/.pyenv/bin:$PATH:/Users/sebastiansotom/.local/bin"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"

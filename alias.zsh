@@ -6,8 +6,12 @@ alias dtscli="/usr/bin/git --git-dir=$XDG_CONFIG_HOME/cli_dotfiles/ --work-tree=
     # alias fm_ignore"git config core.filemode false"
     # config config --local status.showUntrackedFiles no
 
+dcup() {
+  docker compose -f $1 up -d --build
+}
+  
 #file edits
-EDITOR=lvim
+EDITOR=nvim
 TMUX_CONF=$XDG_CONFIG_HOME/tmux/tmux.conf
 
 alias e10="$EDITOR $ZDOTDIR/.p10k.zsh"
@@ -27,23 +31,29 @@ alias eini="$EDITOR $XINITRC"
 alias eau="$EDITOR $XDG_DATA_HOME/dwm/autostart.sh"
 
 #folders
-jva=~/code/java
-ptn=~/code/python
 code=~/Documents/code
+jva=$code/python
 go=$code/go
 ka=~/Documents/Obsidian/KnowledgeArk
+brain="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Brain Journal"
+capps=$code/apps
 
 #shortcuts
 alias de="deactivate"
 alias pf="pip freeze"
+alias pym="python manage.py"
 alias pfr="pip freeze > requirements.txt"
 alias nenv="python -m venv .env"
 alias a="alias | fzf"
 alias lstdeps="expac -S '%r/%n: %D'"
 alias pc="(rm *.orig ; rm *.rej; rm config.h) && sudo make clean install"
 alias pm="pymake"
+# alias gem="/opt/homebrew/opt/ruby/bin/gem"
+# alias ruby="/opt/homebrew/opt/ruby/bin/ruby"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+# alias pyenv='export PYENV_VIRTUALENV_DISABLE_PROMPT=1 && pyenv'
 
-alias flbuild="flutter pub run build_runner build"
+alias flbr="flutter pub run build_runner build --delete-conflicting-outputs"
 alias fladd="flutter pub add "
 
 # exa
@@ -63,7 +73,8 @@ alias mvnweb="mvn -P-webpack"
 #program alias
 alias cat="bat"
 alias top=bpytop
-alias vim=lvim
+alias vim=$EDITOR
+alias tt=taskwarrior-tui
 alias feh="feh -ZF"
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias glass="picom --experimental-backends &"
@@ -110,3 +121,18 @@ vs() {
         [[ $sel == $n ]] && cp $f ".$(echo $f | cut -d '.' -f2-)"
     done
 }
+
+icloud() {
+  cd $HOME/Library/Mobile\ Documents
+  ls | while read -r folder_string; do folder_name="${folder_string##*~}"; echo $folder_name; done | column
+}
+
+fixpods() {
+ rm -rf ~/Library/Developer/Xcode/DerivedData;
+ rm -rf ~/Library/Caches/CocoaPods;
+ pod deintegrate;
+ echo 'You can run pod {update, install}';
+}
+
+# shadcn/ui
+alias shcnc="npx shadcn-ui@latest add"

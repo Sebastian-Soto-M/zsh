@@ -15,13 +15,14 @@ export ZSH_CUSTOM=$ZSH/custom
 export ASDF_DATA_DIR="$XDG_CONFIG_HOME"/asdf
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GOPATH="$XDG_DATA_HOME"/go
+export TASKRC="$XDG_DATA_HOME"/task/taskrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export SDKMAN_DIR="$XDG_DATA_HOME"/sdkman
 export FLUTTER_DIR="$XDG_CONFIG_HOME"/cli_tools/flutter
 
-export PYENV_ROOT=$XDG_DATA_HOME/pyenv
+# export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
@@ -33,10 +34,10 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 
 export SCRIPTS="$XDG_CONFIG_HOME/scripts"
 
-export PATH="$PYENV_ROOT/bin:$FLUTTER_DIR/bin:$XDG_DATA_HOME/go/bin:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:"$HOME/.pub-cache/bin":$PATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:$PATH"
+export PATH="$FLUTTER_DIR/bin:$XDG_DATA_HOME/go/bin:$XDG_DATA_HOME/cargo/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:"$HOME/.pub-cache/bin":$PATH"
+export PATH="/usr/bin/python3:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
-if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-  source "${VIRTUAL_ENV}/bin/activate"
-fi
 
+# if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+#   source "${VIRTUAL_ENV}/bin/activate"
+# fi
